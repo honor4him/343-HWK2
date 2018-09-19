@@ -10,7 +10,8 @@ int read_file( char* filename, char **buffer){
   int size = st.st_size;
 
   // Allocate memory
-  *fileArr = (char*)malloc(size * sizeof(char));
+  char* fileArr;
+  fileArr = (char*)malloc(size * sizeof(char));
 
   // Read file
   FILE *in;
@@ -51,4 +52,14 @@ int read_file( char* filename, char **buffer){
 
 int write_file( char* filename, char *buffer, int size){
 
+  // Open output file
+  FILE *out = fopen(filename, "w");
+
+  // For loop to write file
+  for(int i = 0; i < size; i++){
+
+  }
+
+  fclose(out);
+  return 0;
 }

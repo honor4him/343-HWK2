@@ -5,6 +5,7 @@
 
 int main(int argc, char** argv) {
 
+  // Must have three arguments in comand line
   if (argc != 3) {
     printf ("Please pass the <filename> and end <fileresult> to execute.\n");
     exit(1);
@@ -13,14 +14,11 @@ int main(int argc, char** argv) {
   // File contents
   char* buffer;
 
-  // Find file size
-  char* filename = argv[1];
-  struct stat st;
-  stat(filename, &st);
-  int size = st.st_size;
+  // Size of file
+  int size;
 
   // Pass file to read_file
-  read_file(filename, &buffer);
+  size = read_file(filename, &buffer);
 
   char* fileresult = argv[2];
 
