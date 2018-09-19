@@ -28,23 +28,12 @@ int read_file( char* filename, char **buffer){
   int i = 0;
   while(!feof(in)){
     fscanf(in, "%c", &read);
-
-    //Testing*************************
-    printf("File character: %c\n", read);
-    //Testing*************************
-    //if(i <= 70)
-
-
     fileArr[i] = read;
     i++;
   }
 
+  // Make buffer point to file contents
   *buffer = fileArr;
-
-      //Testing*************************
-  printf("Incriment: %d\n", i);
-  printf("File size: %d\n", size);
-      //Testing*************************
 
   fclose(in);
   return size; // successful
