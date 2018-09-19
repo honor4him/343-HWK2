@@ -5,7 +5,7 @@
 
 int main(int argc, char** argv) {
 
-  // Must have three arguments in comand line
+  // Only continue if there are three command line arguments.
   if (argc != 3) {
     printf ("Please pass the <filename> and end <fileresult> to execute.\n");
     exit(1);
@@ -14,14 +14,25 @@ int main(int argc, char** argv) {
   // File contents
   char* buffer;
 
-  // Size of file
+  // Find file size
   int size;
 
   // Pass file to read_file
+  char* filename = argv[1];
   size = read_file(filename, &buffer);
 
+  // Begin writing the file backwards
   char* fileresult = argv[2];
+  char* reverse = (char*)malloc(size * sizeof(char));
 
+  for(int i = 0; i < size; i++){
+    reverse[size - 1 - i] = buffer[i];
+  }
+
+  write_file(fileresult, reverse, size);
+
+  free(buffer);
+  free(reverse);
 
   // Testing **************
   printf("\nEnd of main reached.\n");

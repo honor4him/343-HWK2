@@ -57,7 +57,7 @@ int write_file( char* filename, char *buffer, int size){
 
   // For loop to write file
   for(int i = 0; i < size; i++){
-
+    fprintf(out, "%c", buffer[i]);
   }
 
   fclose(out);
